@@ -81,3 +81,42 @@ arr = np.array([1.1, 2.1, 3.1])
 newarr = arr.astype('i')
 print(newarr)
 print(f"Tipo de dato: {newarr.dtype}")
+
+# Creando una copia de una matriz
+# La copia de la matriz no afecta a la original ni la original afecta a la copia
+x = arr.copy()
+x[0] = 42
+print(f"Original: {arr}")
+print(f"Copia: {x}")
+
+# Creando una vista de una matriz
+# La vista de la matriz afecta a la original y la original afecta a la copia
+x = arr.view()
+arr[0] = 42
+print(f"Original: {arr}")
+print(f"Vista: {x}")
+
+# Comprobando la autoria de los datos
+x = arr.copy()
+y = arr.view()
+
+print(f"Copia: {x.base}")  # None
+print(f"Vista: {y.base}")  # [42  2.1  3.1]
+
+# Obteniendo la forma de una matriz
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+print(f"Forma: {arr.shape}")
+
+# Remodelando una matriz
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])  # Forma (12)
+print(arr.shape)
+
+newarr = arr.reshape(4, 3)  # Forma (4, 3)
+print(newarr)
+print(newarr.shape)
+
+newarr = arr.reshape(2, 3, 2)  # Forma (2, 3, 2)
+# Pasar -1 como argumento a una dimensión significa que se calcula automáticamente
+# Pasar unicamente -1 como argumento aplanara la matriz en una sola dimensión
+print(newarr)
+print(newarr.shape)
