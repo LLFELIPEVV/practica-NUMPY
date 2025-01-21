@@ -120,3 +120,108 @@ newarr = arr.reshape(2, 3, 2)  # Forma (2, 3, 2)
 # Pasar unicamente -1 como argumento aplanara la matriz en una sola dimensión
 print(newarr)
 print(newarr.shape)
+
+# Iteraciones de matricez
+# Iterando una matriz 1-D
+# Salto de línea
+print()
+print("Iteracion de matrices")
+arr = np.array([1, 2, 3])
+
+for x in arr:
+    print(x)
+
+# Iterando una matriz 2-D
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+for x in arr:
+    for y in x:
+        print(y)
+
+# Iterando una matriz 3-D
+# Es mejor realizar una funcion que disminuya las damensiones de la matriz y vaya entregando los valores
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
+print("3-D")
+
+for x in arr:
+    for y in x:
+        for z in y:
+            print(z)
+
+# Iterando una matriz con nditer()
+arr = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+
+for x in np.nditer(arr):
+    print(x)
+
+# Iterando una matriz con buffer
+arr = np.array([1, 2, 3])
+
+for x in np.nditer(arr, flags=['buffered'], op_dtypes=['S']):
+    print(x)
+
+# Iterando una matriz saltando elementos
+arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+
+for x in np.nditer(arr[:, ::2]):
+    print(x)
+
+# Iterando una matriz con enumeración de índices
+arr = np.array([1, 2, 3])
+
+for idx, x in np.ndenumerate(arr):
+    print(idx, x)
+
+# Unir matrices en Numpy
+print()
+print("Unir matrices en Numpy")
+
+# Uniendo matrices en el eje 0
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+# Poner axis=0 o no poner nada es lo mismo
+arr = np.concatenate((arr1, arr2), axis=0)
+print("Unir matrices en el eje 0")
+print(arr)
+
+# Uniendo matrices en el eje 1
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6], [7, 8]])
+
+arr = np.concatenate((arr1, arr2), axis=1)
+print("Unir matrices en el eje 1")
+print(arr)
+
+# Uniendo matrices mediante funciones de pila (stack)
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.stack((arr1, arr2), axis=1)
+print("Unir matrices mediante funciones de pila (stack)")
+print(arr)
+
+# Apilando matrices verticalmente
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6], [7, 8]])
+
+arr = np.vstack((arr1, arr2))
+print("Apilando matrices en vertical")
+print(arr)
+
+# Apilando matrices horizontalmente
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6], [7, 8]])
+
+arr = np.hstack((arr1, arr2))
+print("Apilando matrices en horizontal")
+print(arr)
+
+# Apilando matrices en profundidad
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.dstack((arr1, arr2))
+print("Apilando matrices en profundidad")
+print(arr)
+print(arr.shape)
