@@ -225,3 +225,57 @@ arr = np.dstack((arr1, arr2))
 print("Apilando matrices en profundidad")
 print(arr)
 print(arr.shape)
+
+# Dividiendo matrices en Numpy
+# Se usa la funcion array_split() para dividir una matriz en submatrices
+# array_split() divide la matriz sin importar el numero de elementos
+# Tambien esta el metodo split() pero no ajusta el numero de elementos
+print()
+print("Dividiendo matrices en Numpy")
+
+arr = np.array([1, 2, 3, 4, 5, 6])
+newarr = np.array_split(arr, 3)
+print(f"Dividiendo una matriz en 3 submatrices: {newarr}")
+print(f"Primer submatriz: {newarr[0]}")
+print(f"Segunda submatriz: {newarr[1]}")
+print(f"Tercera submatriz: {newarr[2]}")
+
+# Tambien se les puede especificar el eje donde se dividira la matriz
+arr = np.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]])
+newarr = np.array_split(arr, 3, axis=1)
+print(f"Dividiendo una matriz en 3 submatrices en el eje 1: {newarr}")
+
+# El hsplit() es equivalente a split() con axis=1, el vsplit() es equivalente a split() con axis=0
+newarr = np.hsplit(arr, 2)
+print(f"Dividiendo una matriz en 2 submatrices en el eje 1: {newarr}")
+
+# Buscando elementos en una matriz
+# Para buscar en una matriz se usa el metodo where()
+print()
+print("Buscando elementos en una matriz")
+
+arr = np.array([1, 2, 3, 4, 5, 4, 4])
+x = np.where(arr == 4)
+print(f"Indices de elementos que son 4: {x}")
+
+x = np.where(arr % 2 == 0)
+print(f"Indices de elementos que son pares: {x}")
+
+x = np.where(arr % 2 == 1)
+print(f"Indices de elementos que son impares: {x}")
+
+# Se puede usar el metodo searchsorted() para hacer una busqueda binaria en una matriz
+# Por defecto inicia de izquierda a derecha pero se puede modificar el parametro side='right' para iniciar de derecha a izquierda
+x = np.searchsorted(arr, 1)
+print(
+    f"Indice donde se deberia insertar el valor 5 para mantener el orden: {x}")
+
+x = np.searchsorted(arr, 1, side='right')
+print(
+    f"Indice donde se deberia insertar el valor 5 para mantener el orden: {x}")
+
+# Tambien se puede valores multiples
+arr = np.array([6, 7, 8, 9])
+x = np.searchsorted(arr, [6, 7, 9])
+print(
+    f"Indices donde se deberian insertar los valores 6, 7 y 9 para mantener el orden: {x}")
