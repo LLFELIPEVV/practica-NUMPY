@@ -279,3 +279,72 @@ arr = np.array([6, 7, 8, 9])
 x = np.searchsorted(arr, [6, 7, 9])
 print(
     f"Indices donde se deberian insertar los valores 6, 7 y 9 para mantener el orden: {x}")
+
+# Ordenando matrices en Numpy
+# Se usa el metodo sort() para ordenar una matriz, el cual usa un algoritmo de ordenamiento de tipo quicksort
+# Tambien acepta otro tipo de algoritmos de ordenamiento como 'mergesort' y 'heapsort'
+print()
+print("Ordenando matrices en Numpy")
+
+arr = np.array([3, 2, 0, 1])
+print(f"Matriz numerica ordenada: {np.sort(arr)}")
+
+arr = np.array(['banana', 'cherry', 'apple'])
+print(f"Matriz de cadenas ordenada: {np.sort(arr)}")
+
+# Ordenando una matriz de booleanos
+arr = np.array([True, False, True])
+print(f"Matriz de booleanos ordenada: {np.sort(arr)}")
+
+# Ordenando una matriz 2-D
+arr = np.array([[3, 2, 4], [5, 0, 1]])
+print(f"Matriz 2-D ordenada: {np.sort(arr)}")
+
+# Filtrando matrices en Numpy
+# Si el valor de un indice es True se incluye en la matriz resultante, si es False no se incluye
+print()
+print("Filtrando matrices en Numpy")
+
+arr = np.array([41, 42, 43, 44])
+x = [True, False, True, False]
+newarr = arr[x]
+
+print(f"Matriz filtrada: {newarr}")
+
+# Filtrando matrices
+arr = np.array([41, 42, 43, 44])
+filter_arr = []
+
+for element in arr:
+    if element > 42:
+        filter_arr.append(True)
+    else:
+        filter_arr.append(False)
+
+newarr = arr[filter_arr]
+print(f"Matriz filtrada: {newarr}")
+
+# Creando una matriz de pares
+arr = np.array([41, 42, 43, 44])
+filter_arr = []
+
+for element in arr:
+    if element % 2 == 0:
+        filter_arr.append(True)
+    else:
+        filter_arr.append(False)
+
+newarr = arr[filter_arr]
+print(f"Matriz de pares: {newarr}")
+
+# Creando filtros directamente desde una matriz
+arr = np.array([41, 42, 43, 44])
+filter_arr = arr > 42
+newarr = arr[filter_arr]
+print(f"Matriz filtrada: {newarr}")
+
+# Creando filtro de pares directamente desde una matriz
+arr = np.array([41, 42, 43, 44])
+filter_arr = arr % 2 == 0
+newarr = arr[filter_arr]
+print(f"Matriz de pares: {newarr}")
