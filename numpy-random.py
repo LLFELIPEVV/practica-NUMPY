@@ -105,3 +105,63 @@ sns.kdeplot(random.normal(loc=50, scale=5, size=1000), label='normal')
 sns.kdeplot(random.binomial(n=100, p=0.5, size=1000), label='binomial')
 plt.legend()
 plt.show()
+
+# Distribucion de Poisson
+# La distribucion de Poisson es una distribucion discreta que describe el numero de eventos que ocurren en un intervalo de tiempo especifico. Por ejemplo, el numero de correos electronicos recibidos en un dia, el numero de llamadas recibidas en una linea telefonica, si alguien come dos veces al día, ¿cuál es la probabilidad de que coma tres veces? etc.
+# Tiene 2 parametros: lam (tasa - numero promedio de eventos que ocurren en un intervalo de tiempo) y size (forma de la matriz).
+print()
+print("Distribucion de Poisson")
+
+# Generando una distribicion de Poisson aleatoria de 1 x 10 para la ocurrencia 2.
+x = random.poisson(lam=2, size=10)
+print(
+    f"Generando una distribicion de Poisson aleatoria de 1 x 10 para la ocurrencia 2 {x}")
+
+# Visualizacion de la distribucion de Poisson
+sns.histplot(random.poisson(lam=2, size=1000), kde=False)
+plt.show()
+
+# Distribucion uniforme
+# Se utiliza para describir una distribucion donde todos los resultados son igualmente probables. Por ejemplo, lanzar un dado, numeros de loteria.
+# Tiene 3 parametros: a (inicio), b (fin) y size (forma de la matriz).
+print()
+print("Distribucion uniforme")
+
+# Generando una distribucion uniforme aleatoria de 2 x 3.
+x = random.uniform(size=(2, 3))
+print(f"Generando una distribucion uniforme aleatoria de 2 x 3 {x}")
+
+# Visualizacion de la distribucion uniforme
+sns.kdeplot(random.uniform(size=1000))
+plt.show()
+
+# Distribucion logistica
+# Se utiliza para describir el crecimiento. Por ejemplo, la velocidad de crecimiento de una poblacion, la velocidad de crecimiento de una infeccion, redes neuronales.
+# Tiene 3 parametros: loc (media), scale (desviacion estandar) y size (forma de la matriz).
+print()
+print("Distribucion logistica")
+
+# Generando una distribucion logistica aleatoria de 2 x 3 con media 1 y desviacion estandar 2.
+x = random.logistic(loc=1, scale=2, size=(2, 3))
+print(
+    f"Generando una distribucion logistica aleatoria de 2 x 3 con media 1 y desviacion estandar 2 {x}")
+
+# Visualizacion de la distribucion logistica
+sns.kdeplot(random.logistic(size=1000))
+plt.show()
+
+# Distribucion multinomial
+# Se utiliza para describir escenarios donde se tienen multiples resultados posibles. Por ejemplo, lanzar un dado, donde el resultado puede ser 1, 2, 3, 4, 5, 6.
+# Tiene 2 parametros: n (numero de intentos) y pvals (probabilidad de cada resultado).
+print()
+print("Distribucion multinomial")
+
+# Generando una distribucion multinomial aleatoria de lanzamiento de dados.
+x = random.multinomial(n=6, pvals=[1/6, 1/6, 1/6, 1/6, 1/6, 1/6])
+print(
+    f"Generando una distribucion multinomial aleatoria de lanzamiento de dados {x}")
+
+# Visualizacion de la distribucion multinomial
+sns.histplot(random.multinomial(
+    n=6, pvals=[1/6, 1/6, 1/6, 1/6, 1/6, 1/6], size=1000), kde=False)
+plt.show()
