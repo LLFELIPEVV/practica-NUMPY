@@ -165,3 +165,74 @@ print(
 sns.histplot(random.multinomial(
     n=6, pvals=[1/6, 1/6, 1/6, 1/6, 1/6, 1/6], size=1000), kde=False)
 plt.show()
+
+# Distribucion exponencial
+# Se utiliza para describir el tiempo entre eventos en un proceso de Poisson, donde los eventos ocurren continuamente y de forma independiente a una tasa constante. Por ejemplo, el tiempo entre llegadas de autobuses, el tiempo entre llamadas telefonicas, el tiempo entre fallos de un sistema, etc.
+# Tiene 2 parametros: scale (1/rate) y size (forma de la matriz).
+print()
+print("Distribucion exponencial")
+
+x = random.exponential(scale=2, size=(2, 3))
+print(
+    f"Generando una distribucion exponencial aleatoria de 2 x 3 con media 1 y desviacion estandar 2 {x}")
+
+# Visualizacion de la distribucion exponencial
+sns.kdeplot(random.exponential(size=1000))
+plt.show()
+
+# Distribucion chi-cuadrado
+# Se utiliza como una prueba de hipotesis para comparar la varianza de dos muestras. Tambien se utiliza en la regresion lineal. Por ejemplo, en la regresion lineal, se asume que los errores de la regresion siguen una distribucion normal, pero con la distribucion chi-cuadrado, podemos verificar si es correcto o no.
+# Tiene 2 parametros: df (grados de libertad) y size (forma de la matriz).
+print()
+print("Distribucion chi-cuadrado")
+
+x = random.chisquare(df=2, size=(2, 3))
+print(
+    f"Generando una distribucion chi-cuadrado aleatoria de 2 x 3 con media 1 y desviacion estandar 2 {x}")
+
+# Visualizacion de la distribucion chi-cuadrado
+sns.kdeplot(random.chisquare(df=2, size=1000))
+plt.show()
+
+# Distribucion de Rayleigh
+# Se utiliza en comunicaciones inalambricas, para modelar la intensidad de una señal recibida, que puede ser debil o fuerte dependiendo de la distancia entre el transmisor y el receptor. Tambien se utiliza en la ingenieria de fiabilidad para modelar la vida util de un producto. Por ejemplo, la vida util de un televisor, la vida util de un telefono movil, etc.
+# Tiene 2 parametros: scale (escala) y size (forma de la matriz).
+print()
+print("Distribucion de Rayleigh")
+
+x = random.rayleigh(scale=2, size=(2, 3))
+print(
+    f"Generando una distribucion de Rayleigh aleatoria de 2 x 3 con media 1 y desviacion estandar 2 {x}")
+
+# Visualizacion de la distribucion de Rayleigh
+sns.kdeplot(random.rayleigh(size=1000))
+plt.show()
+
+# Distribucion de Pareto
+# Se utiliza para modelar la distribucion de riqueza, ingresos, popularidad, etc. En general, se dice que el 80% de los ingresos pertenecen al 20% de la poblacion. Tambien se utiliza en la ingenieria de fiabilidad para modelar la vida util de un producto, donde se dice que el 80% de los fallos son causados por el 20% de los errores.
+# Tiene 2 parametros: a (alfa) y size (forma de la matriz).
+print()
+print("Distribucion de Pareto")
+
+x = random.pareto(a=2, size=(2, 3))
+print(
+    f"Generando una distribucion de Pareto aleatoria de 2 x 3 con media 1 y desviacion estandar 2 {x}")
+
+# Visualizacion de la distribucion de Pareto
+sns.histplot(random.pareto(a=2, size=1000), kde=False)
+plt.show()
+
+# Distribucion de Zipf
+# Se utiliza para modelar la distribucion de palabras en un texto, popularidad de sitios web, frecuencia de palabras en un idioma, etc. En general, se dice que la palabra mas comun en un texto aparece dos veces mas que la segunda palabra mas comun, tres veces mas que la tercera palabra mas comun, etc. En general, la palabra n mas comun en un texto aparece 1/n veces que la palabra mas comun.
+# Tiene 2 parametros: a (alfa) y size (forma de la matriz).
+print()
+print("Distribucion de Zipf")
+
+x = random.zipf(a=2, size=(2, 3))
+print(
+    f"Generando una distribucion de Zipf aleatoria de 2 x 3 con media 1 y desviacion estandar 2 {x}")
+
+# Visualizacion de la distribucion de Zipf
+x = random.zipf(a=2, size=1000)
+sns.histplot(x[x < 10], kde=False)
+plt.show()
