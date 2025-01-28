@@ -227,3 +227,46 @@ arr = np.array([1, 2, 3])
 newarr = np.cumsum(arr)
 
 print(f"Suma acumulativa de una matriz: {newarr}")  # [1 3 6]
+
+# Productos de Numpy
+# La diferencia entre el producto y la multiplicacion es que la multiplicacion se hace entre 2 elementos, mientras que el producto se hace entre n elementos. El producto de 0 elementos es 1.
+# La funcion (prod) devuelve el producto de los elementos de la matriz.
+print()
+print("Productos de Numpy")
+
+# Multiplicando los valores de una matriz
+arr = np.array([1, 2, 3, 4])
+
+x = np.prod(arr)
+
+print(f"Producto de una matriz: {x}")  # 24
+
+# Encontrando el producto de los valores de dos matrices
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([5, 6, 7, 8])
+
+x = np.prod([arr1, arr2])
+
+print(f"Producto de dos matrices: {x}")  # 40320
+
+# Producto sobre un eje
+# Si se especifica el eje, se multiplicaran los elementos del eje especificado. Si se omite, se multiplicaran todos los elementos de la matriz. El eje 0 es para columnas y el eje 1 es para filas.
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([5, 6, 7, 8])
+
+newarr = np.prod([arr1, arr2], axis=1)  # axis=1
+
+print(f"Producto de dos matrices sobre un eje: {newarr}")  # [  24 1680]
+
+newarr = np.prod([arr1, arr2], axis=0)  # axis=0
+
+print(f"Producto de dos matrices sobre un eje: {newarr}")  # [ 5 12 21 32]
+
+# Producto acumulativo
+# El producto acumulativo es el producto de los elementos hasta el indice actual.
+# La funcion (cumprod) devuelve el producto acumulativo de los elementos de la matriz.
+arr = np.array([1, 2, 3, 4])
+
+newarr = np.cumprod(arr)
+
+print(f"Producto acumulativo de una matriz: {newarr}")  # [ 1  2  6 24]
