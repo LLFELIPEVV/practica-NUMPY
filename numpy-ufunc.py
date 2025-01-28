@@ -290,3 +290,31 @@ arr = np.array([10, 15, 25, 5])
 newarr = np.diff(arr, n=2)
 
 print(f"Diferencia de una matriz n veces: {newarr}")  # [ 5  -30]
+
+# Minimo comun multiplo (MCM) de Nympy
+# El MCM es el numero mas pequeño que es divisible por dos numeros.
+# La funcion (lcm) devuelve el MCM de los numeros especificados.
+print()
+print("Minimo comun multiplo (MCM) de Numpy")
+
+# Encontrando el MCM de dos numeros.
+num1 = 4
+num2 = 6
+
+x = np.lcm(num1, num2)
+
+print(f"MCM de dos numeros: {x}")  # 12
+
+# Encontrando el MCM en una matriz
+# La funcion (lcm.reduce) devuelve el MCM de todos los elementos de la matriz.
+arr = np.array([3, 6, 9])
+
+x = np.lcm.reduce(arr)
+
+print(f"MCM de una matriz: {x}")  # 18
+
+# Encontrando el MCM de una matriz que contiene los elementos del 1 al 10
+arr = np.arange(1, 11)
+x = np.lcm.reduce(arr)
+
+print(f"MCM de una matriz que contiene los elementos del 1 al 10: {x}")  # 2520
