@@ -318,3 +318,25 @@ arr = np.arange(1, 11)
 x = np.lcm.reduce(arr)
 
 print(f"MCM de una matriz que contiene los elementos del 1 al 10: {x}")  # 2520
+
+# Maximo comun divisor (MCD) de Numpy
+# El MCD es el numero mas grande que es divisible por dos numeros.
+# La funcion (gcd) devuelve el MCD de los numeros especificados.
+print()
+print("Maximo comun divisor (MCD) de Numpy")
+
+# Encontrando el MCD de dos numeros.
+num1 = 6
+num2 = 9
+
+x = np.gcd(num1, num2)
+
+print(f"MCD de dos numeros: {x}")  # 3
+
+# Encontrando el MCD en una matriz
+# La funcion (gcd.reduce) devuelve el MCD de todos los elementos de la matriz.
+arr = np.array([20, 8, 32, 36, 16])
+
+x = np.gcd.reduce(arr)
+
+print(f"MCD de una matriz: {x}")  # 4
