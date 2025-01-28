@@ -270,3 +270,23 @@ arr = np.array([1, 2, 3, 4])
 newarr = np.cumprod(arr)
 
 print(f"Producto acumulativo de una matriz: {newarr}")  # [ 1  2  6 24]
+
+# Diferencias de Numpy
+# La diferencia entre la diferencia y la resta es que la resta se hace entre 2 elementos, mientras que la diferencia se hace entre n elementos.
+# La funcion (diff) calcula la diferencia entre elementos sucesivos de la matriz.
+print()
+print("Diferencias de Numpy")
+
+# Calculando la diferencia discreta de una matriz
+arr = np.array([10, 15, 25, 5])  # x2 - x1, x3 - x2, x4 - x3
+
+newarr = np.diff(arr)
+
+print(f"Diferencia de una matriz: {newarr}")  # [ 5 10 -20]
+
+# Calculando la diferencia discreta de una matriz n veces
+arr = np.array([10, 15, 25, 5])
+
+newarr = np.diff(arr, n=2)
+
+print(f"Diferencia de una matriz n veces: {newarr}")  # [ 5  -30]
