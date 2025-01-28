@@ -184,3 +184,46 @@ print(f"Loragritmo natural de una matriz: {np.log(arr)}")
 nplog = np.frompyfunc(log, 2, 1)
 
 print(f"Logaritmo en cualquier base de una matriz: {nplog(100, 15)}")
+
+# Sumas de Numpy
+# La diferencia entre la suma y la adicion es que la adicion se hace entre 2 elementos, mientras que la suma se hace entre n elementos.
+print()
+print("Sumas de Numpy")
+
+# Agregando los valores de arr1 a arr2
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([1, 2, 3])
+
+newarr = np.add(arr1, arr2)
+
+print(f"Suma de dos matrices: {newarr}")  # [2 4 6]
+
+# Suma los valores de arr1 y arr2
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([1, 2, 3])
+
+newarr = np.sum([arr1, arr2])
+
+print(f"Suma de dos matrices: {newarr}")  # 12
+
+# Suma sobre un eje
+# Si se especifica el eje, se sumaran los elementos del eje especificado. Si se omite, se sumaran todos los elementos de la matriz. El eje 0 es para columnas y el eje 1 es para filas.
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([1, 2, 3])
+
+newarr = np.sum([arr1, arr2], axis=1)  # axis=1
+
+print(f"Suma de dos matrices sobre un eje: {newarr}")  # [6 6]
+
+newarr = np.sum([arr1, arr2], axis=0)  # axis=0
+
+print(f"Suma de dos matrices sobre un eje: {newarr}")  # [2 4 6]
+
+# Suma acumulativa
+# La suma acumulativa es la suma de los elementos hasta el indice actual.
+# La funcion (cumsum) devuelve la suma acumulativa de los elementos de la matriz.
+arr = np.array([1, 2, 3])
+
+newarr = np.cumsum(arr)
+
+print(f"Suma acumulativa de una matriz: {newarr}")  # [1 3 6]
