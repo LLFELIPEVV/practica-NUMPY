@@ -340,3 +340,57 @@ arr = np.array([20, 8, 32, 36, 16])
 x = np.gcd.reduce(arr)
 
 print(f"MCD de una matriz: {x}")  # 4
+
+# Funciones Trigonometricas de Numpy
+# Numpy proporciona las ufuncs sin(), cos(), tan() que toman valores en radianes y producen los valores correspondientes.
+print()
+print("Funciones Trigonometricas de Numpy")
+
+# Encontrando el valor de seno de PI/2
+x = np.sin(np.pi/2)
+
+print(f"Valor de seno de PI/2: {x}")  # 1.0 Radianes
+
+# Encontrando el valor de seno de una matriz
+arr = np.array([np.pi/2, np.pi/3, np.pi/4, np.pi/5])
+
+x = np.sin(arr)
+
+# [1.         0.8660254  0.70710678 0.58778525]
+print(f"Valor de seno de una matriz: {x}")
+
+# Convirtiendo grados a radianes
+# Los radianes = (pi/180) * (grados)
+arr = np.array([90, 180, 270, 360])
+
+x = np.deg2rad(arr)
+
+print(f"Convirtiendo grados a radianes: {x}")
+
+# Convirtiendo radianes a grados
+arr = np.array([np.pi/2, np.pi, 1.5*np.pi, 2*np.pi])
+
+x = np.rad2deg(arr)
+
+print(f"Convirtiendo radianes a grados: {x}")
+
+# Encontrando angulos
+# Numpy proporciona ufuncs arsin(), arcos(), arctan() que toman valores en radianes y producen los valores correspondientes.
+x = np.arcsin(1.0)
+
+print(f"Encontrando angulos: {x}")  # 1.5707963267948966
+
+# Angulos para todos los valores de seno de una matriz
+arr = np.array([1, -1, 0.1])
+x = np.arcsin(arr)
+
+print(f"Angulos para todos los valores de seno de una matriz: {x}")
+
+# Encontrando hipotenusas
+# Numpy proporciona la ufunc hypot() que toma los valores de la base y de la perpendicular y produce las hipotenusas.
+base = 3
+perp = 4
+
+x = np.hypot(base, perp)
+
+print(f"Encontrando hipotenusas: {x}")  # 5.0
