@@ -394,3 +394,33 @@ perp = 4
 x = np.hypot(base, perp)
 
 print(f"Encontrando hipotenusas: {x}")  # 5.0
+
+# Funciones Hiperbolicas de Numpy
+# Numpy proporciona las ufuncs sinh(), cosh(), tanh() que toman valores en radianes y producen los valores correspondientes.
+print()
+print("Funciones Hiperbolicas de Numpy")
+
+# Encontrando el valor de seno hiperbolico de PI/2
+x = np.sinh(np.pi/2)
+
+print(f"Valor de seno hiperbolico de PI/2: {x}")  # 1.0 Radianes
+
+# Encontrando los valores de coseno en una matriz
+arr = np.array([np.pi/2, np.pi/3, np.pi/4, np.pi/5])
+
+x = np.cosh(arr)
+
+print(f"Valor de coseno en una matriz: {x}")
+
+# Encontrando angulos hiperbolicos
+# Numpy proporciona ufuncs arcsinh(), arccosh(), arctanh() que producen los valores correspondientes en radianes.
+x = np.arcsinh(1.0)
+
+print(f"Encontrando angulos hiperbolicos: {x}")
+
+# Angulos para todos los valores de tanh de una matriz
+arr = np.array([0.1, 0.2, 0.5])
+
+x = np.arctanh(arr)
+
+print(f"Angulos para todos los valores de tanh de una matriz: {x}")
