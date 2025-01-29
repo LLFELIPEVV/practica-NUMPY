@@ -365,6 +365,7 @@ arr = np.array([90, 180, 270, 360])
 
 x = np.deg2rad(arr)
 
+# [1.57079633 3.14159265 4.71238898 6.28318531]
 print(f"Convirtiendo grados a radianes: {x}")
 
 # Convirtiendo radianes a grados
@@ -372,7 +373,7 @@ arr = np.array([np.pi/2, np.pi, 1.5*np.pi, 2*np.pi])
 
 x = np.rad2deg(arr)
 
-print(f"Convirtiendo radianes a grados: {x}")
+print(f"Convirtiendo radianes a grados: {x}")  # [ 90. 180. 270. 360.]
 
 # Encontrando angulos
 # Numpy proporciona ufuncs arsin(), arcos(), arctan() que toman valores en radianes y producen los valores correspondientes.
@@ -384,6 +385,7 @@ print(f"Encontrando angulos: {x}")  # 1.5707963267948966
 arr = np.array([1, -1, 0.1])
 x = np.arcsin(arr)
 
+# [ 1.57079633 -1.57079633  0.10016742]
 print(f"Angulos para todos los valores de seno de una matriz: {x}")
 
 # Encontrando hipotenusas
@@ -410,17 +412,64 @@ arr = np.array([np.pi/2, np.pi/3, np.pi/4, np.pi/5])
 
 x = np.cosh(arr)
 
+# [2.50917848 1.60028686 1.32460909 1.20397209]
 print(f"Valor de coseno en una matriz: {x}")
 
 # Encontrando angulos hiperbolicos
 # Numpy proporciona ufuncs arcsinh(), arccosh(), arctanh() que producen los valores correspondientes en radianes.
 x = np.arcsinh(1.0)
 
-print(f"Encontrando angulos hiperbolicos: {x}")
+print(f"Encontrando angulos hiperbolicos: {x}")  # 0.881373587019543
 
 # Angulos para todos los valores de tanh de una matriz
 arr = np.array([0.1, 0.2, 0.5])
 
 x = np.arctanh(arr)
 
+# [0.10033535 0.20273255 0.54930614]
 print(f"Angulos para todos los valores de tanh de una matriz: {x}")
+
+# Operaciones de conjuntos de Numpy
+print()
+print("Operaciones de conjuntos de Numpy")
+
+# Creando un conjunto
+arr = np.array([1, 1, 1, 2, 3, 4, 5, 5, 6, 7])
+
+x = np.unique(arr)
+
+print(f"Creando un conjunto: {x}")  # [1 2 3 4 5 6 7]
+
+# Encontrando la unión de dos conjuntos
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([3, 4, 5, 6])
+
+newarr = np.union1d(arr1, arr2)
+
+print(f"Encontrando la unión de dos conjuntos: {newarr}")  # [1 2 3 4 5 6]
+
+# Encontrando la intersección de dos conjuntos
+# El argumento assume_unique acelera el calculo, siempre debe estar activado cuando se trabaja con conjuntos.
+arr1 = np.array([1, 2, 3, 4])
+arr2 = np.array([3, 4, 5, 6])
+
+newarr = np.intersect1d(arr1, arr2, assume_unique=True)
+
+print(f"Encontrando la intersección de dos conjuntos: {newarr}")  # [3 4]
+
+# Encontrando la diferencia entre dos conjuntos
+set1 = np.array([1, 2, 3, 4])
+set2 = np.array([3, 4, 5, 6])
+
+newarr = np.setdiff1d(set1, set2, assume_unique=True)
+
+print(f"Encontrando la diferencia entre dos conjuntos: {newarr}")  # [1 2]
+
+# Encontrando la diferencia simetrica entre dos conjuntos
+set1 = np.array([1, 2, 3, 4])
+set2 = np.array([3, 4, 5, 6])
+
+newarr = np.setxor1d(set1, set2, assume_unique=True)
+
+print(f"Encontrando la diferencia simetrica entre dos conjuntos: {
+      newarr}")  # [1 2 5 6]
